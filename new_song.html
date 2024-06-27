@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Add a New Song</h1>
+
+<form method="POST">
+  {{ form.hidden_tag() }}
+  <div>
+    {{ form.title.label }}<br>
+    {{ form.title(size=32) }}<br>
+    {% for error in form.title.errors %}
+      <span style="color: red;">[{{ error }}]</span><br>
+    {% endfor %}
+  </div>
+  <div>
+    {{ form.artist.label }}<br>
+    {{ form.artist(size=32) }}<br>
+    {% for error in form.artist.errors %}
+      <span style="color: red;">[{{ error }}]</span><br>
+    {% endfor %}
+  </div>
+  <div>
+    <button type="submit">Add Song</button>
+  </div>
+</form>
+
+{% endblock %}
